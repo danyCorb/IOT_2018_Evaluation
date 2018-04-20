@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+        <script src="../js/TemperatureDAO.js"></script>
+        <script src="../js/temperature.js"></script>
+        <script src="../js/mustache.js"></script>
+        <title>Température</title>
+    </head>
+
+    <body>
+        <div id="co_body_oneRapsberry">
+
+            <canvas id="canvas"></canvas>
+
+            <table class="co_raspberryTable" cellspacing="0" cellpadding="0" id="model">
+                <!-- Table head -->
+                <tr >
+                    <th>Date</th>
+                    <th>Heure</th>
+                    <th>Température</th>
+                </tr>
+            </table>
+        </div>
+
+    </body>
+
+    <script type="text/javascript">
+        var ctx = document.getElementById("canvas").getContext('2d');
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data:  {
+                labels: ["01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00","08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", "00:00"],
+                datasets: [{
+                    label: 'Température',
+                    data: [12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3, 8, 20, 24, 16, 23, 24],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options:  {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+    <script>
+
+        var temperature = new  TemperatureDAO();
+        temperature.getAllTemperatureData();
+
+
+    </script>
+</html>

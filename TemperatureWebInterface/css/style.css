@@ -1,0 +1,142 @@
+
+html {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: 'Century Gothic', sans-serif;
+}
+
+body {
+	margin: 0px;
+	width: 100%;
+	height: 100%;
+
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	border: 0;
+	outline: 0;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+a {
+	background-color: transparent;
+	color: black;
+	text-decoration: none;
+}
+
+/*------------------------------------------------------------------------------*/
+/*----------------------------------- TEMPERATURE ------------------------------*/
+/*------------------------------------------------------------------------------*/
+
+#co_body_temperature{
+    background-color: blue;
+    width:100%;
+    height:100%;
+}
+
+.co_background{
+
+	display:flex;
+    flex-direction: column;
+	justify-content: center;
+	align-items: center;
+    width: 100%;
+}
+
+#co_center{
+    height: 90%;
+}
+
+#co_bottom{
+    height: 10%;
+}
+
+#co_temperatureContainer>p{
+    font-size: 12vw;
+    color:white;
+}
+
+#co_dataInfos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+}
+
+#co_dataInfos>*{
+    padding:10px;
+}
+
+#co_dataInfos>p{
+    font-size: 1vw;
+    color:white;
+}
+
+/*------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------*/
+/*-------------------------------- ALL RASPBERRY ------------------------*/
+/*------------------------------------------------------------------------------*/
+
+#co_body_allRapsberry{
+    width:100%;
+    height:100%;
+    padding:0 10vw 0 10vw;
+    background-image: linear-gradient(to right top, #bd0840, #c52751, #cc3a62, #d24b72, #d85b82);
+
+}
+
+/*Table*/
+.co_raspberryTable{
+    width:100%;
+    background-color:#FFFFFF22;
+    box-shadow: -1px 6px 7px 0px rgba(0,0,0,0.25);
+}
+
+
+/*Table Header*/
+.co_raspberryTable tr:first-child{
+
+}
+
+/*Table header cell*/
+.co_raspberryTable th{
+    padding:20px;
+    border-width: 0;
+    color:white;
+    text-align: left;
+}
+
+/*Table lines*/
+.co_raspberryTable tr:not(:first-child):hover{
+    background-color:#FFFFFF33;
+    border-style: none;
+    cursor: pointer;
+
+}
+/*Table line cell*/
+.co_raspberryTable td{
+    padding:20px;
+    color:white;
+    border-width: 0;
+}
+
+/*One Raspberry Background*/
+#co_body_oneRapsberry{
+    background-color:indianred;
+    width:100%;
+    min-height: 100%;
+}
+
+#co_body_oneRapsberry canvas{
+    padding:2vw;
+    background-color:white;
+}
+
+
+
+/*------------------------------------------------------------------------------*/
