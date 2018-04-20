@@ -1,0 +1,1 @@
+Le fichier receiver.c contient le code Arduino pour récupérer la température et l'envoyer à travers l'émetteur.
