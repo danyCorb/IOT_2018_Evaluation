@@ -21,33 +21,34 @@ DallasTemperature sensors(&oneWire);
 /********************************************************************/ 
 void setup(void) 
 { 
-   // start serial port 
-   Serial.begin(9600); 
-   Serial.println("Dallas Temperature IC Control Library Demo"); 
-   if (!driver.init())
-           Serial.println("init failed");
+ // start serial port 
+ Serial.begin(9600); 
+ if (!driver.init())
+         Serial.println("init failed");
 
-   // Start up the library 
-   sensors.begin(); 
+ // Start up the library 
+ sensors.begin(); 
 } 
 void loop(void) 
 { 
-   // call sensors.requestTemperatures() to issue a global temperature 
-   // request to all devices on the bus 
-  /********************************************************************/
-   sensors.requestTemperatures(); // Send the command to get temperature readings 
-  /********************************************************************/
-   Serial.print("\nTemperature is: "); 
-   //float temperature = sensors.getTempCByIndex(0);
-   float temperature = 25.6; 
-   char msg[255]={0};
-   sprintf(msg,"%f %d",temperature, ARDUINO_ID);
-   driver.send((const uint8_t *)msg, strlen(msg));
-      driver.waitPacketSent();
+ // call sensors.requestTemperatures() to issue a global temperature 
+ // request to all devices on the bus 
+/********************************************************************/
+ sensors.requestTemperatures(); // Send the command to get temperature readings 
+/********************************************************************/
+ float temperature = sensors.getTempCByIndex(0);
+ char msg[255]={0};
+ sprintf(msg,"%f %d",temperature, ARDUINO_ID);
+ driver.send((const uint8_t *)msg, strlen(msg));
+    driver.waitPacketSent();
 
-   Serial.print(temperature); // Why "byIndex"?  
-   Serial.flush();
+ Serial.print(temperature); // Why "byIndex"?  
+ Serial.print(" ");
+ Serial.print(ARDUINO_ID);
+ Serial.print("\n");
+ 
+ Serial.flush();
    // You can have more than one DS18B20 on the same bus.  
    // 0 refers to the first IC on the wire 
-   delay(1000); 
+   delay(30000); 
 } 
